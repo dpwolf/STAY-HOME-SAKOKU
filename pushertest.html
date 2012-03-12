@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>STAY HOME SAKOKU</title>
+    <meta charset="utf-8">
+    <!-- <meta name="description" content=""> -->
+    <!-- <meta name="author" content=""> -->
+
+    <script src="assets/js/libs/jquery-1.7.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8" src="assets/js/hiki.js"></script>
+
+
+    <!-- <script src="assets/js/libs/bootstrap-button.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-tab.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-tooltip.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-popover.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-collapse.js" type="text/javascript" charset="utf-8"></script> -->
+
+    <!--<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+    <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
+    <script src="assets/js/libs/PusherChatWidget.js"></script>
+    <script>
+      $(function() {
+        var pusher = new Pusher('310757e054579f1cda65')
+        var chatWidget = new PusherChatWidget(pusher, {
+          appendTo: '#pusher_chat_widget'
+        });
+      });
+    </script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
+    <link rel="stylesheet/less" href="assets/less/bootstrap.less" media="all" />
+    <script src="assets/js/libs/less-1.1.5.min.js"></script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://stayhomesakoku.com/favicon.ico">
+    <!-- <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> -->
+
+
+    <style type="text/css" media="screen">
+        .logo {
+            background: #000 url("images/logo-overflow.jpg") no-repeat top;
+            height: 496px;
+            width: 100%;
+            margin: -20px;
+            padding: 20px;
+            color: transparent;
+        }
+        .container {
+            padding-top: 15px;
+        }
+        .fixed {
+            position: fixed;
+            top: 15px;
+            z-index: -1;
+        }
+    </style>
+
+    <script id="cam-image-thumbnail-template" type="text/template" charset="utf-8">
+        <li class="">
+            <a href="#" class="thumbnail">
+                <img width="210" height="157" src="cam-images/<%= fileName %>" alt="<%= fileName %>">
+            </a>
+        </li>
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="span2">
+                <h1 class="logo">STAY HOME SAKOKU</h1>
+
+                <hr>
+
+                <h2>Eugenia Lim</h2>
+                <p>22nd - 29th March 2012</p>
+                <p><a href="http://maps.google.com/maps/place?q=west+space+melbourne&hl=en&cid=3783796658307755238">West Space, Level 1/225 Bourke Street, Melbourne VIC 3000, Australia</a></p>
+                    <p><a class="">Facebook Page »</a></p>
+                    <p><a class="">Twitter »</a></p>
+                    <p><a class="">Blog »</a></p>
+
+                <hr>
+
+            </div>
+
+            <div class="span2">
+            </div>
+
+            <div class="span7">
+
+                <h2>Manifesto</h2>
+
+                <p>Chillwave kogi sartorial mustache, letterpress pickled ethical. Organic skateboard yr, mlkshk before they sold out portland vinyl beard shoreditch selvage iphone bespoke seitan ethnic. Mlkshk small batch farm-to-table echo park, pour-over next level pop-up pitchfork trust fund PBR. Synth bespoke small batch irony.</p>
+
+                <p><a class="">Read more »</a></p>
+
+                <hr>
+
+                <div id="pusher_chat_widget">
+                </div>
+
+
+            </div>
+
+
+
+
+                <!-- <ul class="thumbnails">
+                    <a href="#" class="thumbnail">
+                        <img src="http://placehold.it/640x480" alt="">
+                    </a>
+                </ul> -->
+
+
+        </div>
+
+        <div class="row fixed">
+
+            <div class="span3 offset9">
+
+                <h2>Live from West Space</h2>
+                <ul class="thumbnails cam-thumbnails">
+                    <li class="">
+                        <a href="#" class="thumbnail">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
+                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="thumbnail">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1">
+                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="thumbnail">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191600_2.jpg" alt="000DC5D65BBB() 0 20120229191600 2">
+                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                        </a>
+                    </li>
+                    <!-- <li class="">
+                        <a href="#" class="thumbnail">
+                            <img src="http://placehold.it/640x480" alt="">
+                        </a>
+                    </li> -->
+                </ul>
+
+            </div><!--/span-->
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
