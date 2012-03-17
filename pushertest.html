@@ -13,9 +13,9 @@
     <script type="text/javascript" charset="utf-8" src="assets/js/hiki.js"></script>
 
 
-    <!-- <script src="assets/js/libs/bootstrap-button.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/bootstrap-button.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/libs/bootstrap-modal.js" type="text/javascript" charset="utf-8"></script>
-    <script src="assets/js/libs/bootstrap-tab.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="assets/js/libs/bootstrap-tab.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/libs/bootstrap-tooltip.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/libs/bootstrap-popover.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/js/libs/bootstrap-collapse.js" type="text/javascript" charset="utf-8"></script> -->
@@ -51,7 +51,7 @@
 
     <style type="text/css" media="screen">
         .logo {
-            background: #000 url("images/logo-overflow.jpg") no-repeat top;
+            background: #000 url("images/logo-overflow-new.jpg") no-repeat top;
             height: 496px;
             width: 100%;
             margin: -20px;
@@ -59,19 +59,23 @@
             color: transparent;
         }
         .container {
-            padding-top: 15px;
+            padding-top: 25px;
         }
         .fixed {
             position: fixed;
-            top: 15px;
+            top: 25px;
             z-index: -1;
+        }
+
+        .activity-stream {
+            list-style: none;
         }
     </style>
 
     <script id="cam-image-thumbnail-template" type="text/template" charset="utf-8">
-        <li class="">
-            <a href="#" class="thumbnail">
-                <img width="210" height="157" src="cam-images/<%= fileName %>" alt="<%= fileName %>">
+        <li class="span2">
+            <a href="#" class="thumbnail active">
+                <img width="210" height="157" src="cam-1/<%= fileName %>" alt="<%= fileName %>">
             </a>
         </li>
     </script>
@@ -81,73 +85,32 @@
     <div class="container">
         <div class="row">
             <div class="span2">
+
                 <h1 class="logo">STAY HOME SAKOKU</h1>
 
-                <hr>
-
-                <h2>Eugenia Lim</h2>
-                <p>22nd - 29th March 2012</p>
-                <p><a href="http://maps.google.com/maps/place?q=west+space+melbourne&hl=en&cid=3783796658307755238">West Space, Level 1/225 Bourke Street, Melbourne VIC 3000, Australia</a></p>
-                    <p><a class="">Facebook Page »</a></p>
-                    <p><a class="">Twitter »</a></p>
-                    <p><a class="">Blog »</a></p>
-
-                <hr>
-
-            </div>
-
-            <div class="span2">
             </div>
 
             <div class="span7">
 
-                <h2>Manifesto</h2>
-
-                <p>Chillwave kogi sartorial mustache, letterpress pickled ethical. Organic skateboard yr, mlkshk before they sold out portland vinyl beard shoreditch selvage iphone bespoke seitan ethnic. Mlkshk small batch farm-to-table echo park, pour-over next level pop-up pitchfork trust fund PBR. Synth bespoke small batch irony.</p>
-
-                <p><a class="">Read more »</a></p>
-
-                <hr>
-
-                <div id="pusher_chat_widget">
-                </div>
-
-
-            </div>
-
-
-
-
-                <!-- <ul class="thumbnails">
-                    <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/640x480" alt="">
+                <ul class="thumbnails row">
+                    <a href="#" class="thumbnail hero span7">
+                        <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
                     </a>
-                </ul> -->
+                </ul>
 
+                <h2>Hiki Cam:</h2>
+                <p>Photo stream, live from West Space, Melbourne</p>
 
-        </div>
-
-        <div class="row fixed">
-
-            <div class="span3 offset9">
-
-                <h2>Live from West Space</h2>
-                <ul class="thumbnails cam-thumbnails">
-                    <li class="">
-                        <a href="#" class="thumbnail">
+                <ul class="thumbnails cam-thumbnails row">
+                    <li class="span2">
+                        <a href="#" class="thumbnail active">
                             <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
                             <!-- <img src="http://placehold.it/640x480" alt=""> -->
                         </a>
                     </li>
-                    <li class="">
+                    <li class="span2">
                         <a href="#" class="thumbnail">
                             <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1">
-                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="thumbnail">
-                            <img src="cam-images/000DC5D65BBB()_0_20120229191600_2.jpg" alt="000DC5D65BBB() 0 20120229191600 2">
                             <!-- <img src="http://placehold.it/640x480" alt=""> -->
                         </a>
                     </li>
@@ -158,12 +121,154 @@
                     </li> -->
                 </ul>
 
-            </div><!--/span-->
 
+                <hr>
+
+                <div id="pusher_chat_widget">
+                </div>
+
+                <p><a data-toggle="modal" data-target="#community-guidelines-modal">Chat »</a></p>
+
+            </div>
+
+            <div class="span3">
+
+                <h2>Eugenia Lim</h2>
+
+                <p>
+                    Live-in performance and online conversation
+                </p>
+                <p>
+                    Thur 22 Mar – Thur 29 Mar 2012
+                </p>
+
+                <p>
+                    Exhibition runs
+                </p>
+                <p>
+                    Fri 30 Mar – 14 April 2012
+                </p>
+
+                <p><a href="http://www.westspace.org.au">West Space Gallery</a></p>
+
+                <p>Level 1, 225 Bourke Street, Melbourne, Vic, 3000, Australia <a href="http://maps.google.com/maps/place?q=west+space+melbourne&hl=en&cid=3783796658307755238">[Map]</a></p>
+
+                <p>+61 3 9662 3297 / <a href="mailto:info@westspace.org.au">info@westspace.org.au</a> / Exhibition hours Wed-Fri 12-6pm Sat 12-5pm Opening Celebration Thur 22 March, 6-8pm</p>
+
+                <hr>
+
+                <ul class="nav nav-list">
+                    <li>
+                        <a data-toggle="modal" data-target="#statement-modal">Statement</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-target="#about-modal">About</a>
+                    </li>
+                </ul>
+                <hr>
+                <ul class="nav nav-list">
+                    <li>
+                        <a class="http://stayhomesakoku.tumblr.com" target="_blank">Stay Home Sakoku Blog »</a>
+                    </li>
+                    <li>
+                        <a href="http://youtu.be/R5J8SrTCPt8" target="_blank">YouTube Trailer »</a>
+                    </li>
+                    <li>
+                        <a href="http://www.facebook.com/StayHomeSakoku" target="_blank">Facebook Page »</a>
+                    </li>
+                    <li>
+                        <a href="http://www.twitter.com/StayHomeSakoku" target="_blank">Twitter »</a>
+                    </li>
+                    <li>
+                        <a href="mailto:stayhomesakoku@gmail.com" target="_blank">Email »</a>
+                    </li>
+                    <li>
+                        <a href="http://www.eugenialim.com/" target="_blank">Eugenia Lim »</a>
+                    </li>
+                </ul>
+
+                <hr>
+
+            </div><!--/span-->
 
         </div>
 
     </div>
+
+    <div id="about-modal" class="modal fade">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>About</h3>
+        </div>
+        <div class="modal-body">
+            <p><em>Stay Home Sakoku: The Hikikomori Project</em> is an introverted performance exploring the Japanese phenomenon of <em>hikikomori</em> or ‘shut in’ syndrome. Over one week, Eugenia Lim will live in a bedroom-style installation within West Space. Although physically ‘on view’ to gallery goers, communication between herself and the outside world will occur via a web portal or ‘hiki-site’ through which everyone is invited to chat and participate in the project from their own networked phones, computers and lives. Without leaving the space or receiving any visitors, Lim will rely on the kindness of others for food and survival.</p>
+
+            <p><em>Hikikomori</em> confine themselves to their rooms for months and, in extreme cases, years on end. Without physical contact, <em>hikikomori</em> exist in isolation. Yet, many survive on a diet of pop culture and live a networked existence through an online community of forums, games and chatrooms. Increasingly, through daily engagement with Web 2.0, we are all becoming networked beings. Stay Home is a project for anyone whose life intersects with technology and the Internet. Project collaborators are Dan West, Yumi Umiumare and David Wolf. <em>Stay Home Sakoku: The Hikikomori Project</em> is part of the <a href="http://westspace.org.au/calendar/event/today-your-love/" target="_blank">Today Your Love</a> program, which is generously supported by the Australia Council. Lim will inhabit the Back Space from Thur 22 Mar – Thur 29 Mar, however the installation will be on display until 14 April. Project collaborators are Dan West, Yumi Umiumare, David Wolf and Nicole Dominic. <em>Stay Home Sakoku: The Hikikomori Project</em> is supported by the Australia Council and City of Melbourne.</p>
+
+            <p>Eugenia Lim is a video and interdisciplinary artist based in Melbourne. Her work spans video, photography, installation and cross-disciplinary practice to explore themes of identity, cultural stereotypes, mythology and race. She has exhibited in solo and group exhibitions in Australia and internationally at galleries including 24Hr Art, Dianne Tanzer + Projects, Platform ARI, Australian Centre for the Moving Image, Queensland Gallery of Modern Art and the Tate Modern London.</p>
+
+        </div>
+        <div class="modal-footer">
+          <a data-dismiss="modal" class="btn">Close</a>
+        </div>
+    </div>
+
+    <div id="statement-modal" class="modal fade">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Statement</h3>
+        </div>
+        <div class="modal-body">
+            <p>I, Eugenia Lim, will retreat from physical society for one week.</p>
+
+            <p>I will stay within the four walls of the 5m x 5m back-space at West Space gallery, never going outside. I will not speak to anyone or receive any visitors.</p>
+
+            <p>I will bring in only essentials, including objects for a digital life. I will post an inventory of all items on the hiki-portal before I enter the space.</p>
+
+            <p>For nourishment, I will bring in only water. I will depend on the kindness of strangers and the local community for my food and survival.</p>
+
+            <p>Gifts are welcome, otherwise all media and entertainment I consume will not take a physical form: everything I watch, listen, play and read will be via the internet, including Henri-Louis Bergson’s Time and Free Will (there is no negation in duration).</p>
+
+            <p>I will post an updated inventory of all items collected at the end of my week.</p>
+
+            <p>I will be on view from 5pm on Thursday 22 March until 5pm on Thursday 29 March 2012. Gallery hours are Wed - Fri 12-6pm and Sat 12pm-5pm. Online viewing during this time will occur via live-captured stills 24/7.</p>
+
+            <p>I invite the networked world to participate via the hiki portal www.stayhomesakoku.com from the 22nd March 2012.</p>
+
+            <p>
+                <img src="images/euge-sig-peach.png" alt="Signature" />
+            </p>
+
+            <p>Eugenia Lim</p>
+        </div>
+        <div class="modal-footer">
+          <a data-dismiss="modal" class="btn">Close</a>
+        </div>
+    </div>
+
+    <div id="community-guidelines-modal" class="modal fade">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Community guidelines</h3>
+        </div>
+        <div class="modal-body">
+
+            <p>Be brave and respectful, stand by your words and actions. While hanging out in Stay Home Sakoku land, the internet and the wider world, please respect and listen to the people you encounter, as well as their opinions. Challenge, debate and discuss but keep it clean respectful. Remember, the world is watching. If you are disrespectful, you will have to leave our home. Now, go forth and make good talk with your fellow humans.</p>
+            <form>
+                <p>
+                    <label class="checkbox">
+                        <input type="checkbox"> By ticking this box, you declare that you are over 18 and have read and agreed to these community guidelines.
+                    </label>
+                </p>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <a data-dismiss="modal" class="btn">Cancel</a>
+            <a class="btn accept" disabled="true">Accept</a>
+        </div>
+    </div>
+
 
 </body>
 </html>

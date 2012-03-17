@@ -1,13 +1,37 @@
 $(function(){
     var thumbnailTemplate = _.template( $("#cam-image-thumbnail-template").html() );
+
+    hiki_cam = [];
+
+    var showImages = function()
+    {
+        var tempImages = hiki_cam;
+
+        var showImage = function()
+        {
+            if (tempImages.length)
+            {
+                var image = tempImages.shift();
+                $(".cam-thumbnails").html( thumbnailTemplate({
+                    fileName: image
+                }));
+            }
+            _.delay(showImage, 5000);
+        }
+        showImage();
+
+        setTimeout( showImages, 15000);
+    }
+
+
     var getImages = function()
     {
         $.ajax({
-            url: "cam-images/list_images.php",
+            url: "cam-1/list_images.php",
             dataType: "json",
             success: function( images )
             {
-                $(".cam-thumbnails").empty();
+                // $(".cam-thumbnails").empty();
 
                 // reverse the list of images
                 images = _.sortBy( images, function( image, index )
@@ -15,16 +39,8 @@ $(function(){
                     return - index;
                 });
 
-                _.each( images, function( image, index )
-                {
-                    if (index < 3)
-                    {
-                        $(".cam-thumbnails").append( thumbnailTemplate({
-                            fileName: image
-                        }));
-                        // console.log( "image: ", image, index );
-                    }
-                })
+                hiki_cam = images;
+                showImages();
             }
         })
         setTimeout( getImages, 15000);

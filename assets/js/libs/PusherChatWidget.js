@@ -133,12 +133,12 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
     success: function(result) {
       var activity = result.activity;
       var imageInfo = activity.actor.image;
-      var image = $('<div class="pusher-chat-widget-current-user-image">' +
+      var image = $('<div class="pusher-chat-widget-current-user-image span7">' +
                       '<img src="' + imageInfo.url + '" width="32" height="32" />' +
+                      '<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>' +
                     '</div>');
-      var name = $('<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>');
       var header = self._widget.find('.pusher-chat-widget-header');
-      header.html(image).append(name);
+      header.html(image);
     }
   })
 };
@@ -164,23 +164,29 @@ PusherChatWidget._createHTML = function(appendTo) {
   var html = '' +
   '<div class="pusher-chat-widget">' +
     '<h2>Choose a name and start chatting</h2>' +
-    '<p><a class="" href="#">The rules »</a></p>' +
-
-    '<div class="pusher-chat-widget-header">' +
-      '<label for="nickname">Name</label>' +
-      '<input type="text" name="nickname" />' +
-      '<label for="email" title="So we can look up your Gravatar">Email (optional)</label>' +
-      '<input type="email" name="email" />' +
+    '<div class="pusher-chat-widget-header row">' +
+        '<div class="span3">' +
+            '<label for="nickname">Name</label>' +
+            '<input type="text" name="nickname" />' +
+        '</div>' +
+        '<div class="span3">' +
+            '<label for="email" title="So we can look up your Gravatar">Email (optional)</label>' +
+            '<input type="email" name="email" />' +
+        '</div>' +
+      '</div>' +
     '</div>' +
-    '<div class="pusher-chat-widget-messages">' +
-      '<ul class="activity-stream">' +
+    '<div class="pusher-chat-widget-messages row">' +
+      '<ul class="activity-stream span7">' +
         '<li class="waiting">No chat messages available</li>' +
       '</ul>' +
     '</div>' +
     '<div class="pusher-chat-widget-input">' +
-      '<label for="message">Message</label>' +
-      '<textarea name="message"></textarea>' +
-      '<button class="pusher-chat-widget-send-btn">Send</button>' +
+        '<hr>' +
+        '<label for="message">Message</label>' +
+        '<form class="form-inline" action="javascript:void(0);">' +
+            '<textarea name="message" class="span6"></textarea>' +
+            '<button type="submit" class="pusher-chat-widget-send-btn btn pull-right">Send</button>' +
+        '</form>' +
     '</div>' +
   '</div>';
   var widget = $(html);
