@@ -1,6 +1,4 @@
 $(function(){
-    var thumbnailTemplate = _.template( $("#cam-image-thumbnail-template").html() );
-
     hiki_cam = [];
 
     var showImages = function()
@@ -12,9 +10,7 @@ $(function(){
             if (tempImages.length)
             {
                 var image = tempImages.shift();
-                $(".cam-thumbnails").html( thumbnailTemplate({
-                    fileName: image
-                }));
+                $(".cam-1 img").attr("src", "cam-1/" + image );
             }
             _.delay(showImage, 5000);
         }

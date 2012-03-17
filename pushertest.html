@@ -80,26 +80,32 @@
         .activity-stream {
             list-style: none;
         }
-        .thumbnail.hero{
+        .thumbnail.hero {
             position: relative;
         }
+        .thumbnail.hero,
+        .thumbnail.hero img {
+            width: 540px;
+            height: 405px;
+        }
+
         .countdown {
             position: absolute;
             bottom: 10px;
             right: 10px;
+            color: white;
+            background-color: #444;
         }
         .countdown span:hover {
             text-decoration: none;
         }
+        .thumbnail. .mini-thumbnail {
+            width: 210px;
+            height: 157px;
+        }
+
     </style>
 
-    <script id="cam-image-thumbnail-template" type="text/template" charset="utf-8">
-        <li class="span2">
-            <a href="#" class="thumbnail active">
-                <img width="210" height="157" src="cam-1/<%= fileName %>" alt="<%= fileName %>">
-            </a>
-        </li>
-    </script>
 </head>
 <body>
 
@@ -135,25 +141,27 @@
             <div class="span7">
 
                 <ul class="thumbnails row">
-                    <a href="#" class="thumbnail hero span7">
-                        <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
-                        <span class="countdown">7:23:14:33</span>
-                    </a>
+                    <li class="cam-1 span7">
+                        <a href="#" class="thumbnail hero">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
+                            <span class="countdown">7:23:14:33</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <h2>Hiki Cam:</h2>
                 <p><small>Photo stream, live from West Space, Melbourne</small></p>
 
-                <ul class="thumbnails cam-thumbnails row">
-                    <li class="span2">
+                <ul class="thumbnails cam-1-thumbnails row">
+                    <li class="span2 cam-1">
                         <a href="#" class="thumbnail active">
-                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0" class="mini-thumbnail" />
                             <!-- <img src="http://placehold.it/640x480" alt=""> -->
                         </a>
                     </li>
-                    <li class="span2">
+                    <li class="span2 cam-2">
                         <a href="#" class="thumbnail">
-                            <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1" class="mini-thumbnail" />
                             <!-- <img src="http://placehold.it/640x480" alt=""> -->
                         </a>
                     </li>
