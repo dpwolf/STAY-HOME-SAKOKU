@@ -52,7 +52,7 @@
     <style type="text/css" media="screen">
         .logo {
             background: #000 url("images/logo-overflow-new.jpg") no-repeat top;
-            height: 496px;
+            height: 520px;
             width: 100%;
             margin: -20px;
             padding: 20px;
@@ -69,6 +69,17 @@
 
         .activity-stream {
             list-style: none;
+        }
+        .thumbnail.hero{
+            position: relative;
+        }
+        .countdown {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .countdown span:hover {
+            text-decoration: none;
         }
     </style>
 
@@ -88,6 +99,22 @@
 
                 <h1 class="logo">STAY HOME SAKOKU</h1>
 
+                <h2>Eugenia Lim</h2>
+
+                <p>
+                    <small>
+                        Live-in performance and online conversation<br />
+                        Thur 22 Mar – Thur 29 Mar 2012
+                    </small>
+                </p>
+
+                <p>
+                    <small>
+                        Exhibition runs<br />
+                        Fri 30 Mar – 14 April 2012
+                    </small>
+                </p>
+
             </div>
 
             <div class="span7">
@@ -95,11 +122,12 @@
                 <ul class="thumbnails row">
                     <a href="#" class="thumbnail hero span7">
                         <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
+                        <span class="countdown">7:23:14:33</span>
                     </a>
                 </ul>
 
                 <h2>Hiki Cam:</h2>
-                <p>Photo stream, live from West Space, Melbourne</p>
+                <p><small>Photo stream, live from West Space, Melbourne</small></p>
 
                 <ul class="thumbnails cam-thumbnails row">
                     <li class="span2">
@@ -133,38 +161,28 @@
 
             <div class="span3">
 
-                <h2>Eugenia Lim</h2>
+                <h2  class="hiki-peach">Statement</h2>
 
                 <p>
-                    Live-in performance and online conversation
-                </p>
-                <p>
-                    Thur 22 Mar – Thur 29 Mar 2012
-                </p>
+                    <small class="hiki-peach">I, Eugenia Lim, will retreat from physical society for one week.<br />
 
-                <p>
-                    Exhibition runs
+                    I will stay within the four walls of the 5m x 5m back-space at West Space gallery, never going outside. I will not speak to anyone or receive any visitors.</small>
+                    <small class="hiki-peach">
+                    <a data-toggle="modal" data-target="#statement-modal">Continue reading…</a>
+                    </small>
                 </p>
-                <p>
-                    Fri 30 Mar – 14 April 2012
-                </p>
-
-                <p><a href="http://www.westspace.org.au">West Space Gallery</a></p>
-
-                <p>Level 1, 225 Bourke Street, Melbourne, Vic, 3000, Australia <a href="http://maps.google.com/maps/place?q=west+space+melbourne&hl=en&cid=3783796658307755238">[Map]</a></p>
-
-                <p>+61 3 9662 3297 / <a href="mailto:info@westspace.org.au">info@westspace.org.au</a> / Exhibition hours Wed-Fri 12-6pm Sat 12-5pm Opening Celebration Thur 22 March, 6-8pm</p>
 
                 <hr>
 
-                <ul class="nav nav-list">
-                    <li>
-                        <a data-toggle="modal" data-target="#statement-modal">Statement</a>
-                    </li>
-                    <li>
-                        <a data-toggle="modal" data-target="#about-modal">About</a>
-                    </li>
-                </ul>
+                <h2 class="hiki-peach">About</h2>
+
+                <p>
+                    <small class="hiki-peach">
+                        <em>Stay Home Sakoku: The Hikikomori Project</em> is an introverted performance exploring the Japanese phenomenon of <em>hikikomori</em> or ‘shut in’ syndrome.<br />
+                        <a data-toggle="modal" data-target="#about-modal">About Stay Home Sakoku</a>
+                    </small>
+                </p>
+
                 <hr>
                 <ul class="nav nav-list">
                     <li>
@@ -188,6 +206,18 @@
                 </ul>
 
                 <hr>
+
+                <p>
+                    <small>
+                        <a href="http://www.westspace.org.au">West Space Gallery</a><br />
+                        Level 1, 225 Bourke Street, Melbourne, Vic, 3000, Australia <a href="http://maps.google.com/maps/place?q=west+space+melbourne&hl=en&cid=3783796658307755238">[Map]</a><br />
+                        +61 3 9662 3297<br />
+                        <a href="mailto:info@westspace.org.au">info@westspace.org.au</a><br />
+                        Exhibition hours<br />
+                        Wed-Fri 12-6pm Sat 12-5pm<br />
+                        Opening Celebration<br /> Thur 22 March, 6-8pm
+                    </small>
+                </p>
 
             </div><!--/span-->
 
