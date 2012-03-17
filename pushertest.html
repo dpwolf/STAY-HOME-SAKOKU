@@ -52,11 +52,21 @@
     <style type="text/css" media="screen">
         .logo {
             background: #000 url("images/logo-overflow-new.jpg") no-repeat top;
-            height: 510px;
-            width: 100%;
-            margin: -20px;
-            padding: 20px;
+            height: 505px;
+            width: 200px;
+            margin: -30px -30px -20px -50px;
+            padding: 25px;
             color: transparent;
+            overflow: hidden;
+        }
+        .home-flashing {
+            background: transparent url("images/large-flashing-home.gif") no-repeat top left;
+            margin: 0;
+            height: 90px;
+            width: 111px;
+            display: block;
+            position: relative;
+            top: 408px;
         }
         .container {
             padding-top: 25px;
@@ -97,7 +107,10 @@
         <div class="row">
             <div class="span2">
 
-                <h1 class="logo">STAY HOME SAKOKU</h1>
+                <div class="logo">
+                    <h1>STAY HOME SAKOKU</h1>
+                    <span class="home-flashing">&nbsp;</span>
+                </div>
 
                 <hr>
 
