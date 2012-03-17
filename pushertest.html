@@ -8,6 +8,8 @@
     <!-- <meta name="author" content=""> -->
 
     <script src="assets/js/libs/jquery-1.7.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/libs/jq.cookie.js" type="text/javascript" charset="utf-8"></script>
+
     <script src="assets/js/libs/underscore-min.js" type="text/javascript" charset="utf-8"></script>
 
     <script type="text/javascript" charset="utf-8" src="assets/js/hiki.js"></script>
@@ -25,8 +27,8 @@
     <script src="assets/js/libs/PusherChatWidget.js"></script>
     <script>
       $(function() {
-        var pusher = new Pusher('310757e054579f1cda65')
-        var chatWidget = new PusherChatWidget(pusher, {
+        hiki.pusher = new Pusher('310757e054579f1cda65')
+        hiki.chatWidget = new PusherChatWidget(hiki.pusher, {
           appendTo: '#pusher_chat_widget'
         });
       });
@@ -103,6 +105,11 @@
         .thumbnail. .mini-thumbnail {
             width: 210px;
             height: 157px;
+        }
+
+        .stream-item-content .image img {
+            height: 24px;
+            width: 24px;
         }
 
     </style>
