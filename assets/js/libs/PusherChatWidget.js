@@ -44,7 +44,7 @@ function PusherChatWidget(pusher, options) {
   this._widget = PusherChatWidget._createHTML(this.settings.appendTo);
   this._nicknameEl = this._widget.find('input[name=nickname]');
   this._emailEl = this._widget.find('input[name=email]');
-  this._messageInputEl = this._widget.find('textarea');
+  this._messageInputEl = this._widget.find('input[name="message"]');
   this._messagesEl = this._widget.find('ul');
 
   this._widget.find('button').click(function() {
@@ -114,33 +114,34 @@ PusherChatWidget.prototype._sendChatButtonClicked = function() {
 
 /* @private */
 PusherChatWidget.prototype._sendChatMessage = function(data) {
-  var self = this;
+    var self = this;
 
-  this._messageInputEl.attr('readonly');
-  $.ajax({
-    url: this.settings.chatEndPoint,
-    type: 'post',
-    data: {
-      'chat_info': data
-    },
-    complete: function(xhr, status) {
-      Pusher.log('Chat message sent. Result: ' + status + ' : ' + xhr.responseText);
-      if(xhr.status === 200) {
-        self._messageInputEl.val('');
-      }
-      self._messageInputEl.removeAttr('readonly');
-    },
-    success: function(result) {
-      var activity = result.activity;
-      var imageInfo = activity.actor.image;
-      var image = $('<div class="pusher-chat-widget-current-user-image span7">' +
-                      '<img src="' + imageInfo.url + '" width="32" height="32" />' +
-                      '<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>' +
-                    '</div>');
-      var header = self._widget.find('.pusher-chat-widget-header');
-      header.html(image);
-    }
-  })
+    this._messageInputEl.attr('readonly');
+    $.ajax({
+        url: this.settings.chatEndPoint,
+        type: 'post',
+        data: {
+            'chat_info': data
+        },
+        complete: function(xhr, status) {
+            Pusher.log('Chat message sent. Result: ' + status + ' : ' + xhr.responseText);
+            if(xhr.status === 200) {
+                self._messageInputEl.val('');
+            }
+            self._messageInputEl.removeAttr('readonly');
+        },
+        success: function(result) {
+            var activity = result.activity;
+            var imageInfo = activity.actor.image;
+            var image = $('<div class="pusher-chat-widget-current-user-image span7">' +
+                '<img src="' + imageInfo.url + '" width="32" height="32" />' +
+                '<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>' +
+                '</div>');
+
+            var header = self._widget.find('.pusher-chat-widget-header');
+            header.html(image);
+        }
+    });
 };
 
 /* @private */
@@ -161,37 +162,39 @@ PusherChatWidget.prototype._startTimeMonitor = function() {
 PusherChatWidget._createHTML = function(appendTo) {
     // var html = '<div class="pusher-chat-widget"><div class="pusher-chat-widget-header"><div class="pusher-chat-widget-current-user-image"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&amp;s=48" width="32" height="32"></div><div class="pusher-chat-widget-current-user-name">dave</div></div><div class="pusher-chat-widget-messages"><ul class="activity-stream"><li class="activity" data-activity-id="4f5d67c92b27f" style=""><div class="stream-item-content"><div class="image"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=wavatar&amp;s=48" width="48" height="48"></div><div class="content"><div class="activity-row"><span class="user-name"><a class="screen-name" title="dave">dave</a></span></div><div class="activity-row"><div class="text">laskjfdasl</div></div><div class="activity-row"><a class="timestamp"><span title="Mon, 12 Mar 2012 03:04:41 +0000" data-activity-published="Mon, 12 Mar 2012 03:04:41 +0000">about 9 minutes ago</span></a><span class="activity-actions"></span></div></div></div></li></ul></div><div class="pusher-chat-widget-input"><label for="message">Message</label><textarea name="message"></textarea><button class="pusher-chat-widget-send-btn">Send</button></div></div>'
 
-  var html = '' +
-  '<div class="pusher-chat-widget">' +
-    '<h2>Choose a name and start chatting</h2>' +
-    '<div class="pusher-chat-widget-header row">' +
-        '<div class="span3">' +
-            '<label for="nickname">Name</label>' +
-            '<input type="text" name="nickname" />' +
+    var html = '' +
+    '<h2>Hiki Chat</h2>' +
+    '<div class="pusher-chat-widget">' +
+        '<div class="pusher-chat-widget-messages row">' +
+            '<ul class="activity-stream span7">' +
+                '<li class="waiting hiki-peach">Waiting for messages&hellip;</li>' +
+            '</ul>' +
         '</div>' +
-        '<div class="span3">' +
-            '<label for="email" title="So we can look up your Gravatar">Email (optional)</label>' +
-            '<input type="email" name="email" />' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-    '<div class="pusher-chat-widget-messages row">' +
-      '<ul class="activity-stream span7">' +
-        '<li class="waiting">No chat messages available</li>' +
-      '</ul>' +
-    '</div>' +
-    '<div class="pusher-chat-widget-input">' +
         '<hr>' +
-        '<label for="message">Message</label>' +
-        '<form class="form-inline" action="javascript:void(0);">' +
-            '<textarea name="message" class="span6"></textarea>' +
-            '<button type="submit" class="pusher-chat-widget-send-btn btn pull-right">Send</button>' +
-        '</form>' +
-    '</div>' +
-  '</div>';
-  var widget = $(html);
-  $(appendTo).append(widget);
-  return widget;
+        '<div class="pusher-chat-widget-header">' +
+            '<h2>Choose a name and start chatting</h2>' +
+            '<div class="row">' +
+                '<div class="span3">' +
+                    '<label for="nickname">Name</label>' +
+                    '<input type="text" name="nickname" />' +
+                '</div>' +
+                '<div class="span3">' +
+                    '<label for="email" title="So we can look up your Gravatar">Email (optional)</label>' +
+                    '<input type="email" name="email" />' +
+                '</div>' +
+            '</div>' +
+        '</div>' +
+        '<div class="pusher-chat-widget-input">' +
+            '<label for="message">Message</label>' +
+            '<form class="form-inline" action="javascript:void(0);">' +
+                '<input type="text" name="message" class="span6" />' +
+                '<button type="submit" class="pusher-chat-widget-send-btn btn pull-right">Send</button>' +
+            '</form>' +
+        '</div>' +
+    '</div>';
+    var widget = $(html);
+    $(appendTo).append(widget);
+    return widget;
 };
 
 /* @private */
