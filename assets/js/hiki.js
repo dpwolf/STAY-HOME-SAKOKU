@@ -85,30 +85,32 @@ $(function(){
     {
         $(".select-cam.active").removeClass("active");
         $(e.currentTarget).addClass("active");
+        var img = $(e.currentTarget).find("img").attr("src");
         var cam = $(e.currentTarget).data("cam");
-        $(".hero").data("cam", cam);
+        $(".hero").attr("data-cam", cam);
+        $(".hero img").attr("src", img);
     });
 
-    var showImages = function()
+    var showImages1 = function()
     {
         var tempImages = hiki_cam_1;
 
-        var showImage = function()
+        var showImage1 = function()
         {
             if (tempImages.length)
             {
                 var image = tempImages.shift();
                 $("[data-cam='cam-1'] img").attr("src", "cam-1/" + image );
             }
-            _.delay(showImage, 5000);
+            _.delay(showImage1, 5000);
         }
-        showImage();
+        showImage1();
 
-        setTimeout( showImages, 15000);
+        setTimeout( showImages1, 15000);
     }
 
 
-    var getImages = function()
+    var getImages1 = function()
     {
         $.ajax({
             url: "cam-1/list_images.php",
@@ -124,12 +126,55 @@ $(function(){
                 });
 
                 hiki_cam_1 = images;
-                showImages();
+                showImages1();
             }
         })
-        setTimeout( getImages, 15000);
+        setTimeout( getImages1, 15000);
     }
 
-    getImages();
+    getImages1();
 
+
+    var showImages2 = function()
+    {
+        var tempImages = hiki_cam_2;
+
+        var showImage2 = function()
+        {
+            if (tempImages.length)
+            {
+                var image = tempImages.shift();
+                $("[data-cam='cam-2'] img").attr("src", "cam-2/" + image );
+            }
+            _.delay(showImage2, 5000);
+        }
+        showImage2();
+
+        setTimeout( showImages2, 15000);
+    }
+
+
+    var getImages2 = function()
+    {
+        $.ajax({
+            url: "cam-2/list_images.php",
+            dataType: "json",
+            success: function( images )
+            {
+                // $(".cam-thumbnails").empty();
+
+                // reverse the list of images
+                images = _.sortBy( images, function( image, index )
+                {
+                    return - index;
+                });
+
+                hiki_cam_2 = images;
+                showImages2();
+            }
+        })
+        setTimeout( getImages2, 15000);
+    }
+
+    getImages2();
 })
