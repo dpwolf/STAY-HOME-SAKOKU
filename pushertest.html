@@ -83,11 +83,11 @@
         .activity-stream {
             list-style: none;
         }
-        .thumbnail.hero {
+        .hero .thumbnail {
             position: relative;
         }
-        .thumbnail.hero,
-        .thumbnail.hero img {
+        .hero .thumbnail,
+        .hero .thumbnail img {
             width: 540px;
             height: 405px;
         }
@@ -127,6 +127,16 @@
             width: 42px;
             margin-left: 0;
         }
+        .select-cam {
+            position: relative;
+        }
+        .thumb-caption {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            color: white;
+            background-color: #444;
+        }
     </style>
 
 </head>
@@ -164,8 +174,8 @@
             <div class="span7">
 
                 <ul class="thumbnails row">
-                    <li class="cam-1 span7">
-                        <a href="#" class="thumbnail hero">
+                    <li class="span7 hero" data-cam="cam-1">
+                        <a class="thumbnail">
                             <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
                             <span class="countdown">7:23:14:33</span>
                         </a>
@@ -177,29 +187,24 @@
 
                 <ul class="thumbnails cam-1-thumbnails row">
                     <li class="span2 cam-1">
-                        <a href="#" class="thumbnail active">
+                        <a class="thumbnail active select-cam" data-cam="cam-1">
                             <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0" class="mini-thumbnail" />
-                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                            <span class="thumb-caption">Hiki Cam 1</span>
                         </a>
                     </li>
                     <li class="span2 cam-2">
-                        <a href="#" class="thumbnail">
+                        <a class="thumbnail select-cam"  data-cam="cam-2">
                             <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1" class="mini-thumbnail" />
-                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                            <span class="thumb-caption">Hiki Cam 2</span>
                         </a>
                     </li>
 
-                    <li class="span2 cam-2">
-                        <a href="#" class="thumbnail">
-                            <img src="cam-images/000DC5D65BBB()_0_20120229191550_1.jpg" alt="000DC5D65BBB() 0 20120229191550 1" class="mini-thumbnail" />
-                            <!-- <img src="http://placehold.it/640x480" alt=""> -->
+                    <li class="span2">
+                        <a class="thumbnail select-cam" href="http://youtu.be/R5J8SrTCPt8" target="_blank">
+                            <img src="images/hiki-youtube.jpg" alt="youtube trailer" class="mini-thumbnail" />
+                            <span class="thumb-caption">YouTube</span>
                         </a>
                     </li>
-                    <!-- <li class="">
-                        <a href="#" class="thumbnail">
-                            <img src="http://placehold.it/640x480" alt="">
-                        </a>
-                    </li> -->
                 </ul>
 
 

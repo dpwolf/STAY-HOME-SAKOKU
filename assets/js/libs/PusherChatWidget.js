@@ -211,7 +211,8 @@ PusherChatWidget._createHTML = function(appendTo) {
 
 /* @private */
 PusherChatWidget._buildListItem = function(activity) {
-  var li = $('<li class="activity"></li>');
+  var pink = (activity.actor.displayName == "Eugenia") ? "hiki-pink" : "";
+  var li = $('<li class="activity ' + pink + '"></li>');
   li.attr('data-activity-id', activity.id);
   var item = $('<div class="stream-item-content"></div>');
   li.append(item);

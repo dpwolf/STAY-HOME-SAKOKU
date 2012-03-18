@@ -50,7 +50,8 @@ hiki.sendFirstMessage = function()
 
 }
 $(function(){
-    hiki_cam = [];
+    hiki_cam_1 = [];
+    hiki_cam_2 = [];
 
     $("input.agree").live("click", function(e)
     {
@@ -80,16 +81,24 @@ $(function(){
     });
 
 
+    $(".select-cam").live("click", function( e )
+    {
+        $(".select-cam.active").removeClass("active");
+        $(e.currentTarget).addClass("active");
+        var cam = $(e.currentTarget).data("cam");
+        $(".hero").data("cam", cam);
+    });
+
     var showImages = function()
     {
-        var tempImages = hiki_cam;
+        var tempImages = hiki_cam_1;
 
         var showImage = function()
         {
             if (tempImages.length)
             {
                 var image = tempImages.shift();
-                $(".cam-1 img").attr("src", "cam-1/" + image );
+                $("[data-cam='cam-1'] img").attr("src", "cam-1/" + image );
             }
             _.delay(showImage, 5000);
         }
@@ -114,7 +123,7 @@ $(function(){
                     return - index;
                 });
 
-                hiki_cam = images;
+                hiki_cam_1 = images;
                 showImages();
             }
         })
