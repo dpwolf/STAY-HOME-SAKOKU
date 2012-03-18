@@ -120,14 +120,18 @@
             padding-top: 2px;
         }
         .stream-item-content .content {
-            width: 496px;
+            width: 480px;
         }
 
         .my-avatar {
             width: 42px;
             margin-left: 0;
         }
-        .select-cam {
+        .thumbnails,
+        .thumbnails > li.hero {
+            margin-bottom: 0;
+        }
+        .thumbnail {
             position: relative;
         }
         .thumb-caption {
@@ -136,6 +140,11 @@
             right: 5px;
             color: white;
             background-color: #444;
+        }
+        .pusher-chat-widget-messages{
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
     </style>
 
@@ -173,15 +182,6 @@
 
             <div class="span7">
 
-                <ul class="thumbnails row">
-                    <li class="span7 hero" data-cam="cam-1">
-                        <a class="thumbnail">
-                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
-                            <span class="countdown">7:23:14:33</span>
-                        </a>
-                    </li>
-                </ul>
-
                 <h2>Hiki Cam:</h2>
                 <p><small>Photo stream, live from West Space, Melbourne</small></p>
 
@@ -200,12 +200,22 @@
                     </li>
 
                     <li class="span2">
-                        <a class="thumbnail select-cam" href="http://youtu.be/R5J8SrTCPt8" target="_blank">
+                        <a class="thumbnail" href="http://youtu.be/R5J8SrTCPt8" target="_blank">
                             <img src="images/hiki-youtube.jpg" alt="youtube trailer" class="mini-thumbnail" />
                             <span class="thumb-caption">YouTube</span>
                         </a>
                     </li>
                 </ul>
+
+                <ul class="thumbnails row">
+                    <li class="span7 hero" data-cam="cam-1">
+                        <a class="thumbnail">
+                            <img src="cam-images/000DC5D65BBB()_0_20120229191540_0.jpg" alt="000DC5D65BBB() 0 20120229191540 0">
+                            <span class="countdown">7:23:14:33</span>
+                        </a>
+                    </li>
+                </ul>
+
 
 
                 <hr>

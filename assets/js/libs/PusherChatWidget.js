@@ -178,7 +178,7 @@ PusherChatWidget._createHTML = function(appendTo) {
     '<div class="pusher-chat-widget">' +
         '<div class="pusher-chat-widget-messages row">' +
             '<ul class="activity-stream">' +
-                '<li class="waiting hiki-peach span7">Waiting for messages&hellip;</li>' +
+                '<li class="waiting hiki-peach span6">Waiting for messages&hellip;</li>' +
             '</ul>' +
         '</div>' +
         '<hr>' +
