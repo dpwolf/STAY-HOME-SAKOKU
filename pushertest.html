@@ -63,7 +63,7 @@
             overflow: hidden;
         }
         .home-flashing {
-            background: transparent url("images/home-transparent-animated.gif") no-repeat top left;
+            background: transparent url("images/home-transparent-animated-slower.gif") no-repeat top left;
             margin: 0;
             height: 90px;
             width: 100px;
@@ -107,11 +107,26 @@
             height: 157px;
         }
 
+        .activity-stream {
+            margin: 0;
+        }
+        .my-avatar img,
         .stream-item-content .image img {
             height: 24px;
             width: 24px;
         }
+        .stream-item-content .image {
+            width: 24px;
+            padding-top: 2px;
+        }
+        .stream-item-content .content {
+            width: 496px;
+        }
 
+        .my-avatar {
+            width: 42px;
+            margin-left: 0;
+        }
     </style>
 
 </head>
@@ -193,7 +208,7 @@
                 <div id="pusher_chat_widget">
                 </div>
 
-                <p><a data-toggle="modal" data-target="#community-guidelines-modal">Chat »</a></p>
+                <!-- <p><a data-toggle="modal" data-target="#community-guidelines-modal">Chat »</a></p> -->
 
             </div>
 
@@ -325,15 +340,15 @@
             <form>
                 <p>
                     <label class="checkbox">
-                        <input type="checkbox"> By ticking this box, you declare that you are over 18 and have read and agreed to these community guidelines.
+                        <input type="checkbox" class="agree"> By ticking this box, you declare that you are over 18 and have read and agreed to these community guidelines.
                     </label>
                 </p>
             </form>
 
         </div>
         <div class="modal-footer">
-            <a data-dismiss="modal" class="btn">Cancel</a>
-            <a class="btn accept" disabled="true">Accept</a>
+            <a data-dismiss="modal" class="btn refuse">Cancel</a>
+            <a data-dismiss="modal" class="btn btn-hiki hiki-accept" disabled="true">Accept</a>
         </div>
     </div>
 

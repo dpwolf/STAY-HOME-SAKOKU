@@ -25,7 +25,7 @@ hiki.utils.save_local_param = function( key, value )
 };
 hiki.utils.get_local_param = function( key )
 {
-    if (snapr.info.supports_local_storage)
+    if (hiki.info.supports_local_storage)
     {
         return localStorage.getItem( key );
     }
@@ -44,9 +44,41 @@ hiki.utils.delete_local_param = function( key )
     }
 };
 
+// placeholder
+hiki.sendFirstMessage = function()
+{
 
+}
 $(function(){
     hiki_cam = [];
+
+    $("input.agree").live("click", function(e)
+    {
+        if ($(e.target).attr("checked"))
+        {
+            $(".hiki-accept").attr("disabled", false);
+        }
+        else
+        {
+            $(".hiki-accept").attr("disabled", true);
+        }
+    });
+
+    $(".hiki-accept").live("click", function(e)
+    {
+        if (!$(e.target).attr("disabled"))
+        {
+            hiki.utils.save_local_param( "hiki-agree", "true" );
+            hiki.sendFirstMessage();
+            $("#community-guidelines-modal").modal( "hide" );
+        }
+    });
+
+    $("a.refuse").live("click", function()
+    {
+        hiki.utils.delete_local_param( "hiki-agree" );
+    });
+
 
     var showImages = function()
     {

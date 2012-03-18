@@ -114,6 +114,17 @@ PusherChatWidget.prototype._sendChatButtonClicked = function() {
 
 /* @private */
 PusherChatWidget.prototype._sendChatMessage = function(data) {
+    if (!hiki.utils.get_local_param("hiki-agree"))
+    {
+        var that = this;
+        hiki.sendFirstMessage = function(){
+            that._sendChatMessage( data )
+        }
+        $('#community-guidelines-modal').modal('show');
+
+        return false;
+    }
+
     var self = this;
 
     this._messageInputEl.attr('readonly');
@@ -133,12 +144,12 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
         success: function(result) {
             var activity = result.activity;
             var imageInfo = activity.actor.image;
-            var image = $('<div class="pusher-chat-widget-current-user-image span7">' +
-                '<img src="' + imageInfo.url + '" width="32" height="32" />' +
-                '<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>' +
-                '</div>');
+            var image = $('<img src="' + imageInfo.url + '" width="32" height="32" />' +
+                '<div class="pusher-chat-widget-current-user-name">' + activity.actor.displayName + '</div>');
 
-            var header = self._widget.find('.pusher-chat-widget-header');
+            $(".pusher-chat-widget-header").remove();
+
+            var header = self._widget.find('.my-avatar');
             header.html(image);
         }
     });
@@ -150,7 +161,7 @@ PusherChatWidget.prototype._startTimeMonitor = function() {
 
   setInterval(function() {
     self._messagesEl.children('.activity').each(function(i, el) {
-      var timeEl = $(el).find('a.timestamp span[data-activity-published]');
+      var timeEl = $(el).find('.timestamp span[data-activity-published]');
       var time = timeEl.attr('data-activity-published');
       var newDesc = PusherChatWidget.timeToDescription(time);
       timeEl.text(newDesc);
@@ -166,8 +177,8 @@ PusherChatWidget._createHTML = function(appendTo) {
     '<h2>Hiki Chat</h2>' +
     '<div class="pusher-chat-widget">' +
         '<div class="pusher-chat-widget-messages row">' +
-            '<ul class="activity-stream span7">' +
-                '<li class="waiting hiki-peach">Waiting for messages&hellip;</li>' +
+            '<ul class="activity-stream">' +
+                '<li class="waiting hiki-peach span7">Waiting for messages&hellip;</li>' +
             '</ul>' +
         '</div>' +
         '<hr>' +
@@ -187,7 +198,8 @@ PusherChatWidget._createHTML = function(appendTo) {
         '<div class="pusher-chat-widget-input">' +
             '<label for="message">Message</label>' +
             '<form class="form-inline" action="javascript:void(0);">' +
-                '<input type="text" name="message" class="span6" />' +
+                '<div class="span1 my-avatar"></div>' +
+                '<input type="text" name="message" class="span5" />' +
                 '<button type="submit" class="pusher-chat-widget-send-btn btn pull-right">Send</button>' +
             '</form>' +
         '</div>' +
@@ -205,17 +217,17 @@ PusherChatWidget._buildListItem = function(activity) {
   li.append(item);
 
   var imageInfo = activity.actor.image;
-  var image = $('<div class="image">' +
+  var image = $('<div class="image span1">' +
                   '<img src="' + imageInfo.url + '" width="' + imageInfo.width + '" height="' + imageInfo.height + '" />' +
                 '</div>');
   item.append(image);
 
-  var content = $('<div class="content"></div>');
+  var content = $('<div class="content span6"></div>');
   item.append(content);
 
   var user = $('<div class="activity-row">' +
                 '<span class="user-name">' +
-                  '<a class="screen-name" title="' + activity.actor.displayName + '">' + activity.actor.displayName + '</a>' +
+                  '<span class="screen-name" title="' + activity.actor.displayName + '">' + activity.actor.displayName + ':</span>' +
                   //'<span class="full-name">' + activity.actor.displayName + '</span>' +
                 '</span>' +
               '</div>');
@@ -227,9 +239,9 @@ PusherChatWidget._buildListItem = function(activity) {
   content.append(message);
 
   var time = $('<div class="activity-row">' +
-                '<a ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
+                '<small ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
                   '<span title="' + activity.published + '" data-activity-published="' + activity.published + '">' + PusherChatWidget.timeToDescription(activity.published) + '</span>' +
-                '</a>' +
+                '</small>' +
                 '<span class="activity-actions">' +
                   /*'<span class="tweet-action action-favorite">' +
                     '<a href="#" class="like-action" data-activity="like" title="Like"><span><i></i><b>Like</b></span></a>' +
@@ -260,6 +272,9 @@ PusherChatWidget.getValidChannelName = function(from) {
 PusherChatWidget.timeToDescription = function(time) {
   if(time instanceof Date === false) {
     time = Date.parse(time);
+  }
+  if(_.isNaN(time)) {
+      return "";
   }
   var desc = "dunno";
   var now = new Date();
