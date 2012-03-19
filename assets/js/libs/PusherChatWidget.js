@@ -98,7 +98,7 @@ PusherChatWidget.prototype._sendChatButtonClicked = function() {
     alert('please supply a nickname');
     return;
   }
-  var message = $.trim(this._messageInputEl.val());
+  var message = $.trim(this._messageInputEl.val()).replace(/http:\/\/soundcloud.com/g,"hiki://soundcloud.com");
   if(!message) {
     alert('please supply a chat message');
     return;
@@ -151,6 +151,9 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
 
             var header = self._widget.find('.my-avatar');
             header.html(image);
+        },
+        error: function() {
+            alert("Sorry, links are forbidden");
         }
     });
 };
@@ -234,8 +237,14 @@ PusherChatWidget._buildListItem = function(activity) {
               '</div>');
   content.append(user);
 
+  activity.body = activity.body.replace(/\\('|&quot;)/g, '$1').replace(/hiki:\/\/soundcloud.com/g,"http://soundcloud.com");
+
+  var soundcloud = (activity.body.indexOf("http://soundcloud.com") > -1);
+
   var message = $('<div class="activity-row">' +
-                    '<div class="text">' + activity.body.replace(/\\('|&quot;)/g, '$1') + '</div>' +
+                    '<div class="text">' +
+                    (soundcloud ? "<div class='soundcloud-embed'>Loading Audio…</div>" : activity.body) +
+                    '</div>' +
                   '</div>');
   content.append(message);
 
@@ -251,6 +260,10 @@ PusherChatWidget._buildListItem = function(activity) {
               '</div>');
   content.append(time);
 
+  if (soundcloud)
+  {
+      hiki.get_soundcloud( activity.body, li );
+  }
 
   return li;
 };

@@ -49,6 +49,25 @@ hiki.sendFirstMessage = function()
 {
 
 }
+
+hiki.get_soundcloud = function( url, target_element )
+{
+    $.ajax({
+        url: "http://soundcloud.com/oembed?format=js&auto_play=true&show_comments_false&color=FF9999&url=" + url,
+        dataType: "jsonp",
+        success: function( response )
+        {
+            console.warn( "soundcloud oembed response", response );
+            $(target_element).find(".soundcloud-embed").html(response.html);
+        },
+        error: function( e )
+        {
+            console.warn( "soundcloud error", e );
+        }
+    })
+
+}
+
 $(function(){
     hiki_cam_1 = [];
     hiki_cam_2 = [];
@@ -90,6 +109,41 @@ $(function(){
         $(".hero").attr("data-cam", cam);
         $(".hero img").attr("src", img);
     });
+
+    // countdown
+
+    var end = new Date('16 Jul 2012 13:29:00'); // set expiry date and time..
+
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour *24
+    var timer;
+
+    function showRemaining()
+    {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0 ) {
+           // handle expiry here..
+           clearInterval( timer ); // stop the timer from continuing ..
+           alert('Expired'); // alert a message that the timer has expired..
+
+           return; // break out of the function so that we do not update the counters with negative values..
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor( (distance % _day ) / _hour );
+        var minutes = Math.floor( (distance % _hour) / _minute );
+        var seconds = Math.floor( (distance % _minute) / _second );
+
+        document.getElementById('countdown').innerHTML = days + ':' + hours + ':' + minutes+ ':' + seconds;
+    }
+
+    // timer = setInterval(showRemaining, 1000);
+
+    // ​end countdown
+
+
 
     var showImages1 = function()
     {
